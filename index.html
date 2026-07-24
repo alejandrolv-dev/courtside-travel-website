@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Courtside Travel — Fútbol europeo, como debe vivirse</title>
+<meta name="description" content="Courtside Travel diseña viajes a los estadios de Europa: entradas, hotel, vuelos y las noches que rodean el partido. Sports travel, elevated.">
+<meta name="theme-color" content="#F5F2EA">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Courtside Travel — Fútbol europeo, como debe vivirse">
+<meta property="og:description" content="Diseñamos fines de semana alrededor del partido que eliges: entradas, hotel, restaurantes y un itinerario pensado para que vivas la ciudad, no solo el estadio.">
+<meta property="og:image" content="assets/collage/c1.jpg">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/brand/monogram-alpha.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,300&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.className+=' js';</script>
+<style>
+/* ============================================================
+   COURTSIDE TRAVEL
+   Ivory #F5F2EA · Charcoal #111111 · Court Green #234038 · Champagne Gold #C8A96B
+   Display: Cormorant Garamond (stand-in for Canela) · Body: Inter
+   ============================================================ */
+
+:root{
+  --ivory:#F5F2EA;
+  --charcoal:#111111;
+  --ink:#22201C;
+  --ink-soft:#6B665C;       /* 5.1:1 on ivory */
+  --green:#234038;
+  --gold:#C8A96B;           /* brand gold: fills and large marks only */
+  --gold-ink:#86682D;       /* darkened for small text — 4.6:1 on ivory */
+  --rule:rgba(34,32,28,.28);
+  --rule-soft:rgba(34,32,28,.16);
+  --rule-strong:rgba(34,32,28,.55);  /* 3.6:1 — borders that ARE the control */
+
+  --display:"Cormorant Garamond","Times New Roman",serif;
+  --body:"Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+  --pad:22px;
+  --max:1180px;
+  --section:clamp(72px,10vw,132px);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-behavior:smooth;
+  scroll-padding-top:76px;   /* clear the sticky nav on anchor jumps */
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+body{
+  margin:0;
+  background:var(--ivory);
+  color:var(--ink);
+  font:400 16px/1.6 var(--body);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+
+img{max-width:100%;display:block}
+a{color:inherit}
+
+::selection{background:var(--green);color:var(--ivory)}
+
+:focus-visible{
+  outline:2px solid var(--gold-ink);
+  outline-offset:3px;
+  border-radius:1px;
+}
+
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--pad)}
+
+/* ---------- shared type ---------- */
+.label{
+  font:500 11px/1 var(--body);
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin:0;
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{
+  position:sticky;top:0;z-index:60;
+  background:var(--ivory);
+  border-bottom:1px dotted var(--rule);
+}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  min-height:58px;
+}
+/* the CT monogram, masked so it takes brand gold on any ground */
+.mono{
+  display:block;flex:none;
+  background-color:var(--gold);
+  -webkit-mask:url(assets/brand/monogram-alpha.png) center/contain no-repeat;
+  mask:url(assets/brand/monogram-alpha.png) center/contain no-repeat;
+}
+
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand .mono{width:28px;height:28px}
+.brand-type{display:flex;flex-direction:column;line-height:1}
+.brand-type b{
+  font:500 15px/1 var(--display);
+  letter-spacing:.24em;
+  color:var(--charcoal);
+  text-indent:.24em;
+}
+.brand-type i{
+  font:500 9px/1 var(--body);
+  font-style:normal;
+  letter-spacing:.42em;
+  color:var(--green);
+  margin-top:4px;
+  text-indent:.42em;
+}
+.nav-links{display:flex;align-items:center;gap:22px}
+.nav-links a{
+  font:400 13px/1 var(--body);
+  text-decoration:none;
+  color:var(--ink);
+  padding:6px 0;
+  transition:color .25s ease;
+}
+.nav-links a:hover{color:var(--gold-ink)}
+/* scoped to .nav-links so it outranks `.nav-links a` without !important */
+.nav-links .nav-cta{
+  border:1px solid var(--rule-strong);
+  padding:9px 15px;
+  letter-spacing:.02em;
+  transition:background .3s ease,color .3s ease,border-color .3s ease;
+}
+.nav-links .nav-cta:hover{background:var(--green);border-color:var(--green);color:var(--ivory)}
+@media (max-width:640px){
+  .nav-links a:not(.nav-cta){display:none}
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{padding-top:clamp(46px,7vw,84px);padding-bottom:clamp(40px,6vw,64px);text-align:center}
+.hero h1{
+  margin:0 auto;
+  max-width:19ch;
+  font-family:var(--display);
+  font-weight:500;            /* kit: H1 Canela Bold — 400 read too thin at display size */
+  font-size:clamp(35px,6.4vw,62px);
+  line-height:1.09;
+  letter-spacing:-.012em;
+  color:var(--green);
+}
+.hero h1 em{font-style:italic;font-weight:300}
+.hero-sub{
+  margin:20px auto 0;
+  max-width:46ch;
+  font-size:clamp(14.5px,1.35vw,16.5px);
+  line-height:1.62;
+  color:var(--ink);
+}
+
+/* ---------- collage: the hero's thesis ----------
+   Two tiled bands, no gutters. The upper band hangs from a shared
+   baseline (ragged top); the lower band sits on a shared ceiling
+   (ragged bottom). Every tile's height comes from its own crop. */
+.collage{width:100%;margin:clamp(38px,5.4vw,62px) auto 0}
+.band{display:flex;gap:0}
+.band-top{align-items:flex-end}
+.band-low{align-items:flex-start;width:81%;margin-left:9%;margin-top:1%}
+
+.collage figure{
+  margin:0;flex:none;
+  width:var(--w);
+  position:relative;
+  transition:transform .5s cubic-bezier(.2,.7,.3,1),box-shadow .5s ease;
+}
+.collage img{
+  display:block;width:100%;
+  height:auto;                 /* beat the width/height attrs so aspect-ratio wins */
+  aspect-ratio:var(--ar);
+  object-fit:cover;
+  background:#2a2622;
+}
+.collage figure:hover{transform:scale(1.035);z-index:20;box-shadow:0 12px 30px rgba(17,17,17,.28)}
+
+/* upper band — getting there */
+.c2{--w:19%;--ar:.90}
+.c3{--w:17%;--ar:1.00}
+.c1{--w:26%;--ar:1.20}
+.c9{--w:15%;--ar:.78}
+.c7{--w:23%;--ar:1.35}
+.c9 img{object-position:50% 72%}   /* hold the table, not the wall above it */
+/* lower band — the rest of the weekend */
+.c4{--w:27.8%;--ar:.95}
+.c5{--w:22.2%;--ar:1.75}
+.c8{--w:27.8%;--ar:.95}
+.c6{--w:22.2%;--ar:1.15}
+
+/* Mobile keeps three tiles per band — street, stadium, pub above;
+   hotel, table, matchday below. Each band must still sum to 100%. */
+@media (max-width:760px){
+  .band-low{width:100%;margin-left:0}
+  .c9,.c5,.c7{display:none}
+  .c2{--w:34%;--ar:.90}
+  .c1{--w:38%;--ar:1.20}
+  .c3{--w:28%;--ar:1.00}
+  .c4{--w:36%;--ar:.95}
+  .c8{--w:34%;--ar:.95}
+  .c6{--w:30%;--ar:1.15}
+}
+
+/* ---------- hero cta ---------- */
+.hero-cta{margin-top:clamp(34px,4.6vw,54px)}
+.hero-cta .label{display:block;margin-bottom:12px}
+.link-cta{
+  display:inline-block;
+  font-family:var(--display);
+  font-size:clamp(21px,2.4vw,27px);
+  font-weight:400;
+  color:var(--green);
+  text-decoration:none;
+  padding-bottom:3px;
+  border-bottom:1px solid var(--green);
+  transition:color .3s ease,border-color .3s ease;
+}
+.link-cta:hover{color:var(--gold-ink);border-color:var(--gold-ink)}
+
+/* ============================================================
+   CREED — scroll-lit manifesto
+   ============================================================ */
+.creed{padding-top:var(--section)}
+.creed-box{border:1px dotted var(--rule)}
+.creed-head{
+  border-bottom:1px dotted var(--rule);
+  text-align:center;
+  padding:13px 16px;
+}
+.creed-body{
+  padding:clamp(44px,6vw,84px) clamp(20px,5vw,72px);
+  text-align:center;
+}
+.creed-body p{
+  margin:0 auto;
+  max-width:30ch;
+  font-family:var(--display);
+  font-weight:400;
+  font-size:clamp(22px,3.1vw,33px);
+  line-height:1.34;
+  color:var(--green);
+}
+.creed-body p + p{margin-top:1.15em}
+.creed-body em{font-style:italic;font-weight:300}
+.w{opacity:.15;transition:opacity .45s ease}
+.creed .final{font-size:clamp(20px,2.7vw,29px)}
+
+/* ============================================================
+   STEPS — a real sequence
+   ============================================================ */
+.steps{padding-top:var(--section)}
+.steps > .wrap > h2{
+  margin:0 0 34px;
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(27px,3.5vw,40px);
+  line-height:1.1;
+  color:var(--charcoal);
+}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 clamp(24px,3.4vw,50px)}
+.step{border-top:1px solid var(--rule-soft);padding-top:18px}
+.step-n{
+  font:500 11px/1 var(--body);
+  letter-spacing:.18em;
+  color:var(--gold-ink);
+  display:block;
+  margin-bottom:14px;
+}
+.step h3{
+  margin:0 0 10px;
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(19px,2.1vw,23px);
+  line-height:1.24;
+  color:var(--charcoal);
+}
+.step p{margin:0;font-size:14.5px;line-height:1.66;color:var(--ink-soft);max-width:34ch}
+@media (max-width:760px){
+  .steps-grid{grid-template-columns:1fr;gap:0}
+  .step{padding-bottom:26px}
+  .step p{max-width:none}
+}
+
+/* ============================================================
+   LEAGUES
+   ============================================================ */
+.leagues{padding-top:var(--section)}
+.leagues-box{border:1px dotted var(--rule)}
+.leagues-head{border-bottom:1px dotted var(--rule);text-align:center;padding:13px 16px}
+.leagues-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.league{
+  text-align:center;
+  padding:clamp(26px,3.4vw,40px) 14px clamp(24px,3vw,34px);
+  border-left:1px dotted var(--rule);
+  text-decoration:none;
+  display:block;
+}
+.league:first-child{border-left:0}
+.league-img{
+  width:clamp(96px,10.5vw,138px);
+  aspect-ratio:1;
+  margin:0 auto 18px;
+  border-radius:50%;
+  overflow:hidden;
+  position:relative;
+}
+.league-img img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .8s cubic-bezier(.2,.7,.3,1),filter .6s ease;
+  filter:saturate(.92);
+}
+.league:hover .league-img img{transform:scale(1.07);filter:saturate(1.05)}
+.league h3{
+  margin:0 0 6px;
+  font-family:var(--display);
+  font-weight:400;
+  font-size:clamp(18px,2vw,22px);
+  line-height:1.2;
+  color:var(--charcoal);
+}
+.league span{
+  font:400 12px/1.4 var(--body);
+  color:var(--ink-soft);
+  display:block;
+}
+@media (max-width:760px){
+  .leagues-grid{grid-template-columns:1fr 1fr}
+  .league:nth-child(odd){border-left:0}
+  .league:nth-child(n+3){border-top:1px dotted var(--rule)}
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq{padding-top:var(--section)}
+.faq > .wrap > h2{
+  margin:0 0 14px;
+  text-align:center;
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(28px,3.8vw,44px);
+  line-height:1.1;
+  color:var(--charcoal);
+}
+.faq-lead{
+  margin:0 auto 34px;
+  max-width:42ch;
+  text-align:center;
+  font-family:var(--display);
+  font-style:italic;
+  font-weight:300;
+  font-size:clamp(17px,2vw,21px);
+  line-height:1.4;
+  color:var(--ink-soft);
+}
+.faq-list{border-top:1px dotted var(--rule)}
+details{border-bottom:1px dotted var(--rule)}
+summary{
+  list-style:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:19px 4px;
+  min-height:44px;
+  font-size:14.5px;
+  color:var(--ink);
+  transition:color .25s ease;
+}
+summary::-webkit-details-marker{display:none}
+summary:hover{color:var(--gold-ink)}
+summary b{
+  font:500 11px/1 var(--body);
+  letter-spacing:.14em;
+  color:var(--gold-ink);
+  flex:none;
+  width:18px;
+}
+summary .q{flex:1}
+.chev{
+  flex:none;width:22px;height:22px;border-radius:50%;
+  border:1px solid var(--rule-soft);
+  display:grid;place-items:center;
+  transition:transform .35s ease,border-color .3s ease;
+}
+.chev::before{
+  content:"";width:5px;height:5px;
+  border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  transform:translateY(-1px) rotate(45deg);
+}
+details[open] .chev{transform:rotate(180deg);border-color:var(--gold-ink)}
+.answer{
+  padding:0 4px 24px 38px;
+  max-width:68ch;
+  font-size:14.5px;
+  line-height:1.7;
+  color:var(--ink-soft);
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact{padding-top:var(--section)}
+.contact-card{
+  background:var(--green);
+  color:var(--ivory);
+  padding:clamp(46px,6.4vw,86px) clamp(22px,5vw,64px);
+  text-align:center;
+}
+.contact-card .label{color:rgba(245,242,234,.62)}
+.contact-card h2{
+  margin:14px auto 0;
+  max-width:20ch;
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(30px,4.6vw,54px);
+  line-height:1.12;
+  color:var(--ivory);
+}
+.contact-card > p{
+  margin:18px auto 0;
+  max-width:40ch;
+  font-size:14.5px;
+  line-height:1.7;
+  color:rgba(245,242,234,.78);
+}
+.contact-card a.mail{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(200,169,107,.5)}
+.contact-card a.mail:hover{border-color:var(--gold)}
+
+form{margin:clamp(30px,4vw,44px) auto 0;max-width:640px;text-align:left}
+.field{margin-bottom:16px}
+.field label{
+  display:block;
+  font:500 10.5px/1 var(--body);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(245,242,234,.6);
+  margin-bottom:8px;
+}
+.field input{
+  width:100%;
+  min-height:46px;
+  background:transparent;
+  border:1px dotted rgba(245,242,234,.5);   /* 3.8:1 — the border IS the field */
+  color:var(--ivory);
+  font:400 15px/1.4 var(--body);
+  padding:12px 14px;
+  border-radius:0;
+}
+.field input::placeholder{color:rgba(245,242,234,.6);opacity:1}  /* 4.8:1 */
+.field input:focus{outline:none;border:1px solid var(--gold)}
+.field input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:560px){.row{grid-template-columns:1fr;gap:0}}
+
+button{
+  display:block;
+  margin:26px auto 0;
+  min-height:48px;
+  padding:14px 34px;
+  background:var(--gold);
+  color:#20180B;
+  border:1px solid var(--gold);
+  border-radius:0;
+  font:500 12px/1 var(--body);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:background .3s ease,color .3s ease;
+}
+button:hover{background:transparent;color:var(--gold)}
+.brief-note{
+  margin:18px auto 0;max-width:44ch;text-align:center;
+  font:400 13px/1.6 var(--body);color:rgba(245,242,234,.8);
+}
+.brief-note[hidden]{display:none}
+.field input.is-prefilled{border-style:solid;border-color:var(--gold)}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{margin-top:clamp(56px,7vw,90px);border-top:1px dotted var(--rule)}
+.foot-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding-block:22px;               /* block only — .wrap owns the inline padding */
+}
+.foot-inner .mono{width:30px;height:30px}
+.foot-inner p{margin:0;font:400 11.5px/1 var(--body);letter-spacing:.1em;color:var(--ink-soft)}
+.foot-tag{font:400 11.5px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--gold-ink)}
+@media (max-width:640px){.foot-tag{display:none}}
+
+/* ============================================================
+   MOTION
+   ============================================================ */
+/* The tiles butt against each other, so they fade in place — sliding them
+   would tear seams open across the mosaic. Driven by a CSS animation rather
+   than a JS-applied class, so the hero can never be left blank.
+   .js is set inline in <head>: without scripting the tiles just start visible. */
+.js .collage figure{opacity:0;animation:tile-in .8s ease var(--d,0s) forwards}
+@keyframes tile-in{to{opacity:1}}
+.hero h1,.hero-sub,.hero-cta{animation:up 1s cubic-bezier(.2,.7,.3,1) both}
+.hero-sub{animation-delay:.1s}
+.hero-cta{animation-delay:.2s}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-delay:0s !important;
+    transition-duration:.001ms !important;
+  }
+  .js .collage figure{opacity:1}
+  .w{opacity:1}
+}
+</style>
+</head>
+<body id="top">
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Courtside Travel, inicio">
+      <span class="mono" aria-hidden="true"></span>
+      <span class="brand-type"><b>COURTSIDE</b><i>TRAVEL</i></span>
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#competencias">Competencias</a>
+      <a class="nav-cta" href="#contacto">Hablemos</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero wrap">
+    <h1>Fútbol europeo,<br><em>como debe vivirse.</em></h1>
+    <p class="hero-sub">Diseñamos fines de semana alrededor del partido que eliges: entradas, hotel, restaurantes y un itinerario pensado para que vivas la ciudad, no solo el estadio.</p>
+
+    <div class="collage" id="collage">
+      <div class="band band-top">
+        <figure class="c2" style="--d:0s"><img src="assets/collage/c2.jpg" srcset="assets/collage/c2-480.jpg 480w, assets/collage/c2.jpg 900w" sizes="(max-width:760px) 42vw, 25vw" decoding="async" alt="Aficionados caminando hacia el estadio por una calle empedrada al atardecer" loading="eager" width="900" height="720"></figure>
+        <figure class="c3" style="--d:.05s"><img src="assets/collage/c3.jpg" srcset="assets/collage/c3-480.jpg 480w, assets/collage/c3.jpg 900w" sizes="(max-width:760px) 42vw, 25vw" decoding="async" alt="Interior de un pub con la pizarra de próximos partidos y aficionados" loading="eager" width="900" height="720"></figure>
+        <figure class="c1" style="--d:.10s"><img src="assets/collage/c1.jpg" srcset="assets/collage/c1-480.jpg 480w, assets/collage/c1.jpg 900w" sizes="(max-width:760px) 42vw, 25vw" decoding="async" alt="Palco privado con vista al campo en el Santiago Bernabéu" loading="eager" width="900" height="600"></figure>
+        <figure class="c9" style="--d:.15s"><img src="assets/collage/c9.jpg" srcset="assets/collage/c9-480.jpg 480w, assets/collage/c9.jpg 900w" sizes="(max-width:760px) 42vw, 25vw" decoding="async" alt="Cerveza, bufanda y entradas sobre una mesa de madera" loading="eager" width="784" height="1168"></figure>
+        <figure class="c7" style="--d:.20s"><img src="assets/collage/c7.jpg" srcset="assets/collage/c7-480.jpg 480w, assets/collage/c7.jpg 900w" sizes="(max-width:760px) 42vw, 25vw" decoding="async" alt="Explanada del estadio llena de gente antes del partido" loading="eager" width="900" height="604"></figure>
+      </div>
+      <div class="band band-low">
+        <figure class="c4" style="--d:.25s"><img src="assets/collage/c4.jpg" srcset="assets/collage/c4-480.jpg 480w, assets/collage/c4.jpg 900w" sizes="(max-width:760px) 42vw, 25vw" decoding="async" alt="Habitación de hotel con vista al estadio y entradas sobre la cama" loading="eager" width="900" height="720"></figure>
+        <figure class="c5" style="--d:.30s"><img src="assets/collage/c5.jpg" srcset="assets/collage/c5-480.jpg 480w, assets/collage/c5.jpg 900w" sizes="(max-width:760px) 42vw, 25vw" decoding="async" alt="Salón de hospitality con champán frente al terreno de juego" loading="eager" width="900" height="720"></figure>
+        <figure class="c8" style="--d:.35s"><img src="assets/collage/c8.jpg" srcset="assets/collage/c8-480.jpg 480w, assets/collage/c8.jpg 900w" sizes="(max-width:760px) 42vw, 25vw" decoding="async" alt="Cena en un restaurante de piedra la noche previa al partido" loading="eager" width="900" height="604"></figure>
+        <figure class="c6" style="--d:.40s"><img src="assets/collage/c6.jpg" srcset="assets/collage/c6-480.jpg 480w, assets/collage/c6.jpg 900w" sizes="(max-width:760px) 42vw, 25vw" decoding="async" alt="Calle de Londres con banderines del club y aficionados en día de partido" loading="eager" width="900" height="720"></figure>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <span class="label">Empieza por el partido</span>
+      <a class="link-cta" href="#contacto">Quiero mi propuesta</a>
+    </div>
+  </section>
+
+  <!-- ============ CREED ============ -->
+  <section class="creed">
+    <div class="wrap">
+      <div class="creed-box">
+        <div class="creed-head"><h2 class="label">Por qué lo hacemos así</h2></div>
+        <div class="creed-body" id="creed">
+          <p>Conseguir una entrada es sencillo. Diseñar un fin de semana inolvidable no lo es.</p>
+          <p>Elegimos contigo dónde hospedarte, los restaurantes que vale la pena conocer, el pub antes del partido y el asiento desde donde quieres vivirlo.</p>
+          <p>No armamos paquetes.</p>
+          <p class="final">Diseñamos viajes que tienen sentido <em>para ti</em>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STEPS ============ -->
+  <section class="steps" id="como-funciona">
+    <div class="wrap">
+      <h2>Cómo funciona</h2>
+      <div class="steps-grid">
+        <article class="step">
+          <span class="step-n">PASO 01</span>
+          <h3>Tú eliges el partido.</h3>
+          <p>Nos dices qué encuentro quieres vivir, cuándo quieres viajar y quién viene contigo.</p>
+        </article>
+        <article class="step">
+          <span class="step-n">PASO 02</span>
+          <h3>Nosotros diseñamos el viaje.</h3>
+          <p>Entradas, hotel, recomendaciones, reservas y logística. Todo en una sola propuesta.</p>
+        </article>
+        <article class="step">
+          <span class="step-n">PASO 03</span>
+          <h3>Solo queda disfrutar.</h3>
+          <p>Nos encargamos de los detalles antes y durante el viaje para que tú solo pienses en el siguiente partido.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LEAGUES ============ -->
+  <section class="leagues" id="competencias">
+    <div class="wrap">
+      <div class="leagues-box">
+        <div class="leagues-head"><h2 class="label">Las ligas que conocemos mejor</h2></div>
+        <div class="leagues-grid">
+          <a class="league" href="#contacto">
+            <div class="league-img"><img src="assets/leagues/champions.jpg" alt="Equipos alineados junto al balón de la Champions League antes del saque inicial" loading="lazy" width="560" height="560"></div>
+            <h3>Champions League</h3>
+            <span>Fase de grupos y eliminatorias</span>
+          </a>
+          <a class="league" href="#contacto">
+            <div class="league-img"><img src="assets/leagues/premier.jpg" alt="Stamford Bridge al anochecer con las gradas de Chelsea iluminadas" loading="lazy" width="560" height="560"></div>
+            <h3>Premier League</h3>
+            <span>Londres, Mánchester, Liverpool</span>
+          </a>
+          <a class="league" href="#contacto">
+            <div class="league-img"><img src="assets/leagues/laliga.jpg" alt="Mosaico de aficionados en las gradas del Camp Nou en una noche de LaLiga" loading="lazy" width="560" height="560"></div>
+            <h3>LaLiga</h3>
+            <span>Madrid, Barcelona, Sevilla</span>
+          </a>
+          <a class="league" href="#contacto">
+            <div class="league-img"><img src="assets/leagues/seriea.jpg" alt="El estadio San Siro de Milán iluminado al anochecer" loading="lazy" width="560" height="560"></div>
+            <h3>Serie A</h3>
+            <span>Milán, Roma, Nápoles</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq">
+    <div class="wrap">
+      <h2>Preguntas frecuentes</h2>
+      <p class="faq-lead">Resolver dudas también forma parte del viaje.</p>
+      <div class="faq-list">
+        <details>
+          <summary><b>01</b><span class="q">Cómo consiguen las entradas</span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="answer">Trabajamos con proveedores oficiales y programas de hospitality autorizados por los clubes. Antes de que pagues nada te decimos en qué tribuna y en qué fila quedas.</div>
+        </details>
+        <details>
+          <summary><b>02</b><span class="q">Cuánto cuesta un viaje</span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="answer">Depende del partido y de cómo quieras vivirlo. Te mandamos la propuesta desglosada —entradas, hotel, vuelos y traslados por separado— para que decidas dónde subir y dónde no.</div>
+        </details>
+        <details>
+          <summary><b>03</b><span class="q">Qué pasa si mueven la fecha del partido</span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="answer">Las ligas europeas cambian horarios por televisión, a veces con pocas semanas de aviso. Reacomodamos hotel, vuelos y traslados sin cobrarte gestión; solo pagas la diferencia de tarifa si la hay.</div>
+        </details>
+        <details>
+          <summary><b>04</b><span class="q">Viajan grupos o solo parejas</span><span class="chev" aria-hidden="true"></span></summary>
+          <div class="answer">Desde dos personas hasta grupos de empresa. El itinerario cambia según cuántos sean; la atención durante el viaje es la misma.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contacto">
+    <div class="wrap">
+      <div class="contact-card">
+        <span class="label">Fútbol europeo, en primera fila</span>
+        <h2>Empecemos a diseñar tu próximo fin de semana de fútbol.</h2>
+        <p>Cuéntanos qué partido tienes en mente. Recibirás una propuesta personalizada con entradas, alojamiento y recomendaciones hechas para ese viaje.</p>
+
+        <form id="brief" novalidate>
+          <div class="field">
+            <label for="f-match">Partido o equipo</label>
+            <input id="f-match" name="match" type="text" placeholder="Real Madrid vs. Manchester City" autocomplete="off">
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="f-when">Fechas</label>
+              <input id="f-when" name="when" type="text" placeholder="Marzo 2027" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="f-who">Personas</label>
+              <input id="f-who" name="who" type="text" placeholder="2 adultos" autocomplete="off">
+            </div>
+          </div>
+          <button type="submit">Diseñar mi viaje</button>
+          <p class="brief-note" id="brief-note" role="status" hidden></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span class="mono" role="img" aria-label="Monograma Courtside Travel"></span>
+    <span class="foot-tag">Sports travel, elevated.</span>
+    <p>© 2026 COURTSIDE TRAVEL</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- creed: words light up as you scroll through ---- */
+  var creed = document.getElementById('creed');
+  if(creed && !reduce){
+    var words = [];
+    creed.querySelectorAll('p').forEach(function(p){
+      var frag = document.createDocumentFragment();
+      var nodes = Array.prototype.slice.call(p.childNodes);
+      nodes.forEach(function(node){
+        if(node.nodeType === 3){
+          node.textContent.split(/(\s+)/).forEach(function(tok){
+            if(!tok) return;
+            if(/^\s+$/.test(tok)){ frag.appendChild(document.createTextNode(tok)); return; }
+            var s = document.createElement('span');
+            s.className = 'w'; s.textContent = tok;
+            frag.appendChild(s); words.push(s);
+          });
+        } else {
+          var el = node.cloneNode(false);
+          el.className = (el.className ? el.className + ' ' : '') + 'w';
+          el.textContent = node.textContent;
+          frag.appendChild(el); words.push(el);
+        }
+      });
+      p.innerHTML = ''; p.appendChild(frag);
+    });
+
+    var feather = 7, last = -1;
+    function paint(){
+      var r = creed.getBoundingClientRect(), vh = window.innerHeight;
+      var p = (vh * 0.82 - r.top) / (r.height + vh * 0.28);
+      p = Math.max(0, Math.min(1, p));
+      if(p === last) return;          // nothing moved — skip the style writes
+      last = p;
+      var head = p * (words.length + feather);
+      for(var i=0;i<words.length;i++){
+        var o = (head - i) / feather;
+        words[i].style.opacity = o <= 0 ? 0.15 : (o >= 1 ? 1 : 0.15 + o * 0.85);
+      }
+    }
+    /* Paints at most once per animation frame while the block is on screen.
+       An IntersectionObserver guarantees a paint on enter/exit, so the reveal
+       can't strand at 15% opacity even if a scroll event is missed — and the
+       page never spins an idle frame loop. */
+    var ticking = false;
+    function schedule(){
+      if(ticking) return;
+      ticking = true;
+      requestAnimationFrame(function(){ ticking = false; paint(); });
+    }
+
+    if(!('IntersectionObserver' in window)){
+      words.forEach(function(s){ s.style.opacity = 1; });
+    } else {
+      var visible = false;
+      new IntersectionObserver(function(entries){
+        visible = entries[0].isIntersecting;
+        schedule();
+      }, {rootMargin:'200px 0px'}).observe(creed);
+      window.addEventListener('scroll', function(){ if(visible) schedule(); }, {passive:true});
+      window.addEventListener('resize', schedule, {passive:true});
+      paint();
+    }
+  }
+
+  /* ---- league cards carry their competition into the form ---- */
+  var matchField = document.getElementById('f-match');
+  document.querySelectorAll('.league').forEach(function(card){
+    card.addEventListener('click', function(){
+      var name = card.querySelector('h3').textContent.trim();
+      if(matchField && !matchField.value.trim()){
+        matchField.value = name;
+        matchField.classList.add('is-prefilled');
+      }
+    });
+  });
+
+  /* ---- brief form -> opens the visitor's mail client ---- */
+  var form = document.getElementById('brief');
+  if(form){
+    var note = document.getElementById('brief-note');
+    var val = function(n){ return (form.elements[n].value || '').trim() || 'Por definir'; };
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var m = val('match');
+      var body =
+        'Hola Courtside,\n\n' +
+        'Partido o equipo: ' + m + '\n' +
+        'Fechas: ' + val('when') + '\n' +
+        'Personas: ' + val('who') + '\n\n' +
+        'Cuéntenme qué es posible.\n';
+      window.location.href = 'mailto:hola@courtsidetravel.com'
+        + '?subject=' + encodeURIComponent('Viaje: ' + m)
+        + '&body=' + encodeURIComponent(body);
+
+      /* mailto fails silently when no mail client is set up — say so */
+      if(note){
+        note.textContent = 'Abrimos tu correo con los datos listos. Si no pasó nada, escríbenos a hola@courtsidetravel.com.';
+        note.hidden = false;
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
