@@ -500,13 +500,24 @@ button:hover{background:transparent;color:var(--gold)}
    FOOTER
    ============================================================ */
 footer{margin-top:clamp(56px,7vw,90px);border-top:1px dotted var(--rule)}
-.foot-inner{
+.foot-top{
   display:flex;align-items:center;justify-content:space-between;gap:16px;
-  padding-block:22px;               /* block only - .wrap owns the inline padding */
+  padding-top:22px;
 }
-.foot-inner .mono{width:30px;height:30px}
-.foot-inner p{margin:0;font:400 11.5px/1 var(--body);letter-spacing:.1em;color:var(--ink-soft)}
+.foot-brand{display:flex;align-items:center;gap:14px}
+.foot-brand .mono{width:30px;height:30px}
 .foot-tag{font:400 11.5px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--gold-ink)}
+.foot-social{display:flex;align-items:center;gap:6px}
+.foot-ico{
+  display:grid;place-items:center;
+  width:40px;height:40px;
+  color:var(--ink-soft);
+  transition:color .25s ease;
+}
+.foot-ico:hover{color:var(--gold-ink)}
+.foot-ico svg{width:19px;height:19px;display:block;fill:currentColor}
+.foot-legal{padding:14px 0 22px}
+.foot-legal p{margin:0;font:400 11.5px/1.5 var(--body);letter-spacing:.08em;color:var(--ink-soft)}
 @media (max-width:640px){.foot-tag{display:none}}
 
 /* ============================================================
@@ -701,6 +712,16 @@ footer{margin-top:clamp(56px,7vw,90px);border-top:1px dotted var(--rule)}
               <input id="f-who" name="who" type="text" autocomplete="off">
             </div>
           </div>
+          <div class="row">
+            <div class="field">
+              <label for="f-budget">Presupuesto (aproximado)</label>
+              <input id="f-budget" name="presupuesto" type="text" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email">
+            </div>
+          </div>
           <button type="submit">Diseñar mi viaje</button>
           <p class="brief-note" id="brief-note" role="status" hidden></p>
         </form>
@@ -711,10 +732,26 @@ footer{margin-top:clamp(56px,7vw,90px);border-top:1px dotted var(--rule)}
 </main>
 
 <footer>
-  <div class="wrap foot-inner">
-    <span class="mono" role="img" aria-label="Monograma Courtside Travel"></span>
-    <span class="foot-tag">Sports travel, elevated.</span>
-    <p>© 2026 COURTSIDE TRAVEL</p>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="mono" role="img" aria-label="Monograma Courtside Travel"></span>
+        <span class="foot-tag">Sports travel, elevated.</span>
+      </div>
+      <nav class="foot-social" aria-label="Redes sociales">
+        <!-- Pega la URL de tu perfil de Instagram en el href="" de abajo -->
+        <a class="foot-ico" href="" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.42.56.21.96.47 1.38.9.43.42.69.82.9 1.38.17.43.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.21.56-.47.96-.9 1.38-.42.43-.82.69-1.38.9-.43.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.42-.56-.21-.96-.47-1.38-.9-.43-.42-.69-.82-.9-1.38-.17-.43-.37-1.06-.42-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.21-.56.47-.96.9-1.38.42-.43.82-.69 1.38-.9.43-.17 1.06-.37 2.23-.42C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.12 1.38C1.36 2.67.95 3.34.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.12.66.66 1.33 1.07 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.12-1.38.66-.66 1.07-1.33 1.38-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.12C21.33 1.36 20.66.95 19.86.63 19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0z"/><path d="M12 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84m0 10.16A4 4 0 1 1 12 8a4 4 0 0 1 0 8z"/><circle cx="18.41" cy="5.59" r="1.44"/></svg>
+        </a>
+        <!-- Pega la URL de tu perfil de TikTok en el href="" de abajo -->
+        <a class="foot-ico" href="" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.05-2.82h-3.3v13.4a2.59 2.59 0 0 1-2.58 2.5 2.59 2.59 0 0 1-2.59-2.59 2.59 2.59 0 0 1 3.3-2.49v-3.4a5.88 5.88 0 0 0-5.6 5.89A5.88 5.88 0 0 0 9.67 22a5.88 5.88 0 0 0 5.88-5.88V9.4a7.34 7.34 0 0 0 4.3 1.38V7.4a4.28 4.28 0 0 1-3.25-1.58z"/></svg>
+        </a>
+      </nav>
+    </div>
+    <div class="foot-legal">
+      <p>© 2026 Courtside Travel · Parte de Lifestyle Travel Network LLC</p>
+    </div>
   </div>
 </footer>
 
@@ -813,6 +850,13 @@ footer{margin-top:clamp(56px,7vw,90px);border-top:1px dotted var(--rule)}
       if(!match){
         say('Cuéntanos al menos qué partido o equipo tienes en mente.');
         form.elements.match.focus();
+        return;
+      }
+
+      var email = (form.elements.email.value || '').trim();
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+        say('Déjanos un correo válido para poder responderte.');
+        form.elements.email.focus();
         return;
       }
 

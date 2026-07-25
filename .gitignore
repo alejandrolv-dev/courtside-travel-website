@@ -12,3 +12,6 @@ Icon?
 
 # Local tooling
 .claude/
+
+# Deploy bundles
+*.zip
