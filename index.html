@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Courtside Travel — Fútbol europeo, como debe vivirse</title>
+<title>Courtside Travel · Fútbol europeo, como debe vivirse</title>
 <meta name="description" content="Courtside Travel diseña viajes a los estadios de Europa: entradas, hotel, vuelos y las noches que rodean el partido. Sports travel, elevated.">
 <meta name="theme-color" content="#F5F2EA">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Courtside Travel — Fútbol europeo, como debe vivirse">
+<meta property="og:title" content="Courtside Travel · Fútbol europeo, como debe vivirse">
 <meta property="og:description" content="Diseñamos fines de semana alrededor del partido que eliges: entradas, hotel, restaurantes y un itinerario pensado para que vivas la ciudad, no solo el estadio.">
 <meta property="og:image" content="assets/collage/c1.jpg">
 <meta property="og:locale" content="es_ES">
@@ -31,10 +31,10 @@
   --ink-soft:#6B665C;       /* 5.1:1 on ivory */
   --green:#234038;
   --gold:#C8A96B;           /* brand gold: fills and large marks only */
-  --gold-ink:#86682D;       /* darkened for small text — 4.6:1 on ivory */
+  --gold-ink:#86682D;       /* darkened for small text - 4.6:1 on ivory */
   --rule:rgba(34,32,28,.28);
   --rule-soft:rgba(34,32,28,.16);
-  --rule-strong:rgba(34,32,28,.55);  /* 3.6:1 — borders that ARE the control */
+  --rule-strong:rgba(34,32,28,.55);  /* 3.6:1 - borders that ARE the control */
 
   --display:"Cormorant Garamond","Times New Roman",serif;
   --body:"Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -151,7 +151,7 @@ a{color:inherit}
   margin:0 auto;
   max-width:19ch;
   font-family:var(--display);
-  font-weight:500;            /* kit: H1 Canela Bold — 400 read too thin at display size */
+  font-weight:500;            /* kit: H1 Canela Bold - 400 read too thin at display size */
   font-size:clamp(35px,6.4vw,62px);
   line-height:1.09;
   letter-spacing:-.012em;
@@ -170,7 +170,12 @@ a{color:inherit}
    Two tiled bands, no gutters. The upper band hangs from a shared
    baseline (ragged top); the lower band sits on a shared ceiling
    (ragged bottom). Every tile's height comes from its own crop. */
-.collage{width:100%;margin:clamp(38px,5.4vw,62px) auto 0}
+.collage{
+  width:min(1440px, 94vw);          /* breaks out wider than the text column so it pops */
+  margin:clamp(38px,5.4vw,62px) auto 0;
+  margin-left:50%;
+  transform:translateX(-50%);
+}
 .band{display:flex;gap:0}
 .band-top{align-items:flex-end}
 .band-low{align-items:flex-start;width:81%;margin-left:9%;margin-top:1%}
@@ -190,30 +195,29 @@ a{color:inherit}
 }
 .collage figure:hover{transform:scale(1.035);z-index:20;box-shadow:0 12px 30px rgba(17,17,17,.28)}
 
-/* upper band — getting there */
-.c2{--w:19%;--ar:.90}
-.c3{--w:17%;--ar:1.00}
-.c1{--w:26%;--ar:1.20}
-.c9{--w:15%;--ar:.78}
-.c7{--w:23%;--ar:1.35}
+/* upper band (4 tiles) - getting there */
+.c2{--w:25%;--ar:.90}
+.c3{--w:22%;--ar:1.00}
+.c1{--w:32%;--ar:1.20}
+.c9{--w:21%;--ar:.78}
 .c9 img{object-position:50% 72%}   /* hold the table, not the wall above it */
-/* lower band — the rest of the weekend */
-.c4{--w:27.8%;--ar:.95}
-.c5{--w:22.2%;--ar:1.75}
-.c8{--w:27.8%;--ar:.95}
-.c6{--w:22.2%;--ar:1.15}
+/* lower band (3 tiles) - the rest of the weekend */
+.c4{--w:35.7%;--ar:.95}
+.c5{--w:28.6%;--ar:1.28}
+.c8{--w:35.7%;--ar:.95}
 
-/* Mobile keeps three tiles per band — street, stadium, pub above;
-   hotel, table, matchday below. Each band must still sum to 100%. */
+/* Mobile: 3 tiles per band, and the collage returns to the padded
+   container width (no breakout). Each band must still sum to 100%. */
 @media (max-width:760px){
+  .collage{width:100%;margin-left:auto;transform:none}
   .band-low{width:100%;margin-left:0}
-  .c9,.c5,.c7{display:none}
+  .c9{display:none}
   .c2{--w:34%;--ar:.90}
   .c1{--w:38%;--ar:1.20}
   .c3{--w:28%;--ar:1.00}
   .c4{--w:36%;--ar:.95}
-  .c8{--w:34%;--ar:.95}
-  .c6{--w:30%;--ar:1.15}
+  .c5{--w:28%;--ar:1.75}
+  .c8{--w:36%;--ar:.95}
 }
 
 /* ---------- hero cta ---------- */
@@ -233,7 +237,7 @@ a{color:inherit}
 .link-cta:hover{color:var(--gold-ink);border-color:var(--gold-ink)}
 
 /* ============================================================
-   CREED — scroll-lit manifesto
+   CREED - scroll-lit manifesto
    ============================================================ */
 .creed{padding-top:var(--section)}
 .creed-box{border:1px dotted var(--rule)}
@@ -261,7 +265,7 @@ a{color:inherit}
 .creed .final{font-size:clamp(20px,2.7vw,29px)}
 
 /* ============================================================
-   STEPS — a real sequence
+   STEPS - a real sequence
    ============================================================ */
 .steps{padding-top:var(--section)}
 .steps > .wrap > h2{
@@ -456,7 +460,7 @@ form{margin:clamp(30px,4vw,44px) auto 0;max-width:640px;text-align:left}
   width:100%;
   min-height:46px;
   background:transparent;
-  border:1px dotted rgba(245,242,234,.5);   /* 3.8:1 — the border IS the field */
+  border:1px dotted rgba(245,242,234,.5);   /* 3.8:1 - the border IS the field */
   color:var(--ivory);
   font:400 15px/1.4 var(--body);
   padding:12px 14px;
@@ -489,6 +493,7 @@ button:hover{background:transparent;color:var(--gold)}
   font:400 13px/1.6 var(--body);color:rgba(245,242,234,.8);
 }
 .brief-note[hidden]{display:none}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
 .field input.is-prefilled{border-style:solid;border-color:var(--gold)}
 
 /* ============================================================
@@ -497,7 +502,7 @@ button:hover{background:transparent;color:var(--gold)}
 footer{margin-top:clamp(56px,7vw,90px);border-top:1px dotted var(--rule)}
 .foot-inner{
   display:flex;align-items:center;justify-content:space-between;gap:16px;
-  padding-block:22px;               /* block only — .wrap owns the inline padding */
+  padding-block:22px;               /* block only - .wrap owns the inline padding */
 }
 .foot-inner .mono{width:30px;height:30px}
 .foot-inner p{margin:0;font:400 11.5px/1 var(--body);letter-spacing:.1em;color:var(--ink-soft)}
@@ -507,7 +512,7 @@ footer{margin-top:clamp(56px,7vw,90px);border-top:1px dotted var(--rule)}
 /* ============================================================
    MOTION
    ============================================================ */
-/* The tiles butt against each other, so they fade in place — sliding them
+/* The tiles butt against each other, so they fade in place - sliding them
    would tear seams open across the mosaic. Driven by a CSS animation rather
    than a JS-applied class, so the hero can never be left blank.
    .js is set inline in <head>: without scripting the tiles just start visible. */
@@ -539,7 +544,7 @@ footer{margin-top:clamp(56px,7vw,90px);border-top:1px dotted var(--rule)}
     </a>
     <nav class="nav-links" aria-label="Principal">
       <a href="#como-funciona">Cómo funciona</a>
-      <a href="#competencias">Competencias</a>
+      <a href="#ligas">Ligas</a>
       <a class="nav-cta" href="#contacto">Hablemos</a>
     </nav>
   </div>
@@ -557,15 +562,11 @@ footer{margin-top:clamp(56px,7vw,90px);border-top:1px dotted var(--rule)}
         <figure class="c2" style="--d:0s"><img src="assets/collage/c2.jpg" srcset="assets/collage/c2-480.jpg 480w, assets/collage/c2.jpg 900w" sizes="(max-width:760px) 42vw, 25vw" decoding="async" alt="Aficionados caminando hacia el estadio por una calle empedrada al atardecer" loading="eager" width="900" height="720"></figure>
         <figure class="c3" style="--d:.05s"><img src="assets/collage/c3.jpg" srcset="assets/collage/c3-480.jpg 480w, assets/collage/c3.jpg 900w" sizes="(max-width:760px) 42vw, 25vw" decoding="async" alt="Interior de un pub con la pizarra de próximos partidos y aficionados" loading="eager" width="900" height="720"></figure>
         <figure class="c1" style="--d:.10s"><img src="assets/collage/c1.jpg" srcset="assets/collage/c1-480.jpg 480w, assets/collage/c1.jpg 900w" sizes="(max-width:760px) 42vw, 25vw" decoding="async" alt="Palco privado con vista al campo en el Santiago Bernabéu" loading="eager" width="900" height="600"></figure>
-        <figure class="c9" style="--d:.15s"><img src="assets/collage/c9.jpg" srcset="assets/collage/c9-480.jpg 480w, assets/collage/c9.jpg 900w" sizes="(max-width:760px) 42vw, 25vw" decoding="async" alt="Cerveza, bufanda y entradas sobre una mesa de madera" loading="eager" width="784" height="1168"></figure>
-        <figure class="c7" style="--d:.20s"><img src="assets/collage/c7.jpg" srcset="assets/collage/c7-480.jpg 480w, assets/collage/c7.jpg 900w" sizes="(max-width:760px) 42vw, 25vw" decoding="async" alt="Explanada del estadio llena de gente antes del partido" loading="eager" width="900" height="604"></figure>
-      </div>
+        <figure class="c9" style="--d:.15s"><img src="assets/collage/c9.jpg" srcset="assets/collage/c9-480.jpg 480w, assets/collage/c9.jpg 900w" sizes="(max-width:760px) 42vw, 25vw" decoding="async" alt="Cerveza, bufanda y entradas sobre una mesa de madera" loading="eager" width="784" height="1168"></figure>      </div>
       <div class="band band-low">
         <figure class="c4" style="--d:.25s"><img src="assets/collage/c4.jpg" srcset="assets/collage/c4-480.jpg 480w, assets/collage/c4.jpg 900w" sizes="(max-width:760px) 42vw, 25vw" decoding="async" alt="Habitación de hotel con vista al estadio y entradas sobre la cama" loading="eager" width="900" height="720"></figure>
         <figure class="c5" style="--d:.30s"><img src="assets/collage/c5.jpg" srcset="assets/collage/c5-480.jpg 480w, assets/collage/c5.jpg 900w" sizes="(max-width:760px) 42vw, 25vw" decoding="async" alt="Salón de hospitality con champán frente al terreno de juego" loading="eager" width="900" height="720"></figure>
-        <figure class="c8" style="--d:.35s"><img src="assets/collage/c8.jpg" srcset="assets/collage/c8-480.jpg 480w, assets/collage/c8.jpg 900w" sizes="(max-width:760px) 42vw, 25vw" decoding="async" alt="Cena en un restaurante de piedra la noche previa al partido" loading="eager" width="900" height="604"></figure>
-        <figure class="c6" style="--d:.40s"><img src="assets/collage/c6.jpg" srcset="assets/collage/c6-480.jpg 480w, assets/collage/c6.jpg 900w" sizes="(max-width:760px) 42vw, 25vw" decoding="async" alt="Calle de Londres con banderines del club y aficionados en día de partido" loading="eager" width="900" height="720"></figure>
-      </div>
+        <figure class="c8" style="--d:.35s"><img src="assets/collage/c8.jpg" srcset="assets/collage/c8-480.jpg 480w, assets/collage/c8.jpg 900w" sizes="(max-width:760px) 42vw, 25vw" decoding="async" alt="Cena en un restaurante de piedra la noche previa al partido" loading="eager" width="900" height="604"></figure>      </div>
     </div>
 
     <div class="hero-cta">
@@ -614,7 +615,7 @@ footer{margin-top:clamp(56px,7vw,90px);border-top:1px dotted var(--rule)}
   </section>
 
   <!-- ============ LEAGUES ============ -->
-  <section class="leagues" id="competencias">
+  <section class="leagues" id="ligas">
     <div class="wrap">
       <div class="leagues-box">
         <div class="leagues-head"><h2 class="label">Las ligas que conocemos mejor</h2></div>
@@ -656,7 +657,7 @@ footer{margin-top:clamp(56px,7vw,90px);border-top:1px dotted var(--rule)}
         </details>
         <details>
           <summary><b>02</b><span class="q">Cuánto cuesta un viaje</span><span class="chev" aria-hidden="true"></span></summary>
-          <div class="answer">Depende del partido y de cómo quieras vivirlo. Te mandamos la propuesta desglosada —entradas, hotel, vuelos y traslados por separado— para que decidas dónde subir y dónde no.</div>
+          <div class="answer">Depende del partido y de cómo quieras vivirlo. Te mandamos la propuesta desglosada: entradas, hotel, vuelos y traslados por separado, para que decidas dónde subir y dónde no.</div>
         </details>
         <details>
           <summary><b>03</b><span class="q">Qué pasa si mueven la fecha del partido</span><span class="chev" aria-hidden="true"></span></summary>
@@ -679,18 +680,25 @@ footer{margin-top:clamp(56px,7vw,90px);border-top:1px dotted var(--rule)}
         <p>Cuéntanos qué partido tienes en mente. Recibirás una propuesta personalizada con entradas, alojamiento y recomendaciones hechas para ese viaje.</p>
 
         <form id="brief" novalidate>
+          <!-- Web3Forms: free form backend. Replace the value below with your own
+               access key from https://web3forms.com (enter your email, it mails you a
+               free key). The key is public by design - safe to keep in the page. -->
+          <input type="hidden" name="access_key" value="4c105c41-ab2d-4a19-8e0f-9a3d6a4eb4eb">
+          <input type="hidden" name="from_name" value="Courtside Travel">
+          <!-- honeypot: bots fill this, people never see it -->
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="field">
             <label for="f-match">Partido o equipo</label>
-            <input id="f-match" name="match" type="text" placeholder="Real Madrid vs. Manchester City" autocomplete="off">
+            <input id="f-match" name="match" type="text" autocomplete="off">
           </div>
           <div class="row">
             <div class="field">
               <label for="f-when">Fechas</label>
-              <input id="f-when" name="when" type="text" placeholder="Marzo 2027" autocomplete="off">
+              <input id="f-when" name="when" type="text" autocomplete="off">
             </div>
             <div class="field">
               <label for="f-who">Personas</label>
-              <input id="f-who" name="who" type="text" placeholder="2 adultos" autocomplete="off">
+              <input id="f-who" name="who" type="text" autocomplete="off">
             </div>
           </div>
           <button type="submit">Diseñar mi viaje</button>
@@ -745,7 +753,7 @@ footer{margin-top:clamp(56px,7vw,90px);border-top:1px dotted var(--rule)}
       var r = creed.getBoundingClientRect(), vh = window.innerHeight;
       var p = (vh * 0.82 - r.top) / (r.height + vh * 0.28);
       p = Math.max(0, Math.min(1, p));
-      if(p === last) return;          // nothing moved — skip the style writes
+      if(p === last) return;          // nothing moved - skip the style writes
       last = p;
       var head = p * (words.length + feather);
       for(var i=0;i<words.length;i++){
@@ -755,7 +763,7 @@ footer{margin-top:clamp(56px,7vw,90px);border-top:1px dotted var(--rule)}
     }
     /* Paints at most once per animation frame while the block is on screen.
        An IntersectionObserver guarantees a paint on enter/exit, so the reveal
-       can't strand at 15% opacity even if a scroll event is missed — and the
+       can't strand at 15% opacity even if a scroll event is missed - and the
        page never spins an idle frame loop. */
     var ticking = false;
     function schedule(){
@@ -790,30 +798,54 @@ footer{margin-top:clamp(56px,7vw,90px);border-top:1px dotted var(--rule)}
     });
   });
 
-  /* ---- brief form -> opens the visitor's mail client ---- */
+  /* ---- brief form -> posts to Web3Forms, no email step for the visitor ---- */
   var form = document.getElementById('brief');
   if(form){
     var note = document.getElementById('brief-note');
-    var val = function(n){ return (form.elements[n].value || '').trim() || 'Por definir'; };
+    var btn  = form.querySelector('button[type="submit"]');
+
+    function say(msg){ note.textContent = msg; note.hidden = false; }
 
     form.addEventListener('submit', function(e){
       e.preventDefault();
-      var m = val('match');
-      var body =
-        'Hola Courtside,\n\n' +
-        'Partido o equipo: ' + m + '\n' +
-        'Fechas: ' + val('when') + '\n' +
-        'Personas: ' + val('who') + '\n\n' +
-        'Cuéntenme qué es posible.\n';
-      window.location.href = 'mailto:hola@courtsidetravel.com'
-        + '?subject=' + encodeURIComponent('Viaje: ' + m)
-        + '&body=' + encodeURIComponent(body);
 
-      /* mailto fails silently when no mail client is set up — say so */
-      if(note){
-        note.textContent = 'Abrimos tu correo con los datos listos. Si no pasó nada, escríbenos a hola@courtsidetravel.com.';
-        note.hidden = false;
+      var match = (form.elements.match.value || '').trim();
+      if(!match){
+        say('Cuéntanos al menos qué partido o equipo tienes en mente.');
+        form.elements.match.focus();
+        return;
       }
+
+      var data = new FormData(form);
+      data.set('subject', 'Nueva solicitud de viaje: ' + match);
+
+      var label = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+      note.hidden = true;
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: data
+      })
+      .then(function(r){ return r.json(); })
+      .then(function(res){
+        if(res.success){
+          form.reset();
+          form.elements.match.classList.remove('is-prefilled');
+          say('¡Listo! Recibimos tu solicitud. Te escribimos pronto con una propuesta.');
+        } else {
+          say('No pudimos enviar tu solicitud. Inténtalo de nuevo en un momento.');
+        }
+      })
+      .catch(function(){
+        say('No pudimos enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo.');
+      })
+      .finally(function(){
+        btn.disabled = false;
+        btn.textContent = label;
+      });
     });
   }
 })();
